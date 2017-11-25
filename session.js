@@ -13,6 +13,21 @@ var setInLocal=setVal.bind(local);
 var setInSession=setVal.bind(session);
 
 
+var getItems = function() {
+  var a = document.getElementById('key1').value;
+  console.log(a);
+  var p = this.storage.getItem(a);
+  console.log(p);
+  if (!p)
+      alert("Key-value pair does not exist!");
+  else
+      console.log("Key" + " " + a + " " + "has value" + " " + p);
+}
+
+var getSingleFromLocal=getItems.bind(local);
+var getSingleFromSession=getItems.bind(session);
+
+
 var clearStorage = function() {
    this.storage.clear();
    alert("The storage is cleared!");
@@ -36,21 +51,6 @@ var getVal = function() {
 
 var getFromLocal=getVal.bind(local);
 var getFromSession=getVal.bind(session);
-
-
-var getItems = function() {
-  var a = document.getElementById('key1').value;
-  console.log(a);
-  var p = this.storage.getItem(a);
-  console.log(p);
-  if (!p)
-      alert("Key-value pair does not exist!");
-  else
-      console.log("Key" + " " + a + " " + "has value" + " " + p);
-}
-
-var getSingleFromLocal=getItems.bind(local);
-var getSingleFromSession=getItems.bind(session);
 
 
 var remItem = function(){
