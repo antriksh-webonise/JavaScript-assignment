@@ -14,14 +14,14 @@ var setInSession=setVal.bind(session);
 
 
 var getItems = function() {
-  var a = document.getElementById('key1').value;
-  console.log(a);
-  var p = this.storage.getItem(a);
-  console.log(p);
-  if (!p)
+  var singleValue = document.getElementById('key1').value;
+  console.log(singleValue);
+  var singleItem = this.storage.getItem(singleValue);
+  console.log(singleItem);
+  if (!singleItem)
       alert("Key-value pair does not exist!");
   else
-      console.log("Key" + " " + a + " " + "has value" + " " + p);
+      console.log("Key" + " " + singleValue + " " + "has value" + " " + singleItem);
 }
 
 var getSingleFromLocal=getItems.bind(local);
@@ -38,11 +38,11 @@ var clearSessionStorage=clearStorage.bind(session);
 
 
 var getVal = function() {
-      var x = this.storage.length;
-      if (x == 0)
+      var storageLength = this.storage.length;
+      if (storageLength == 0)
           alert("Storage is already empty");
    else
-        for(var i = 0; i < x; i++) {
+        for(var i = 0; i < storageLength; i++) {
             var key = this.storage.key(i);
             var value = this.storage[key];
             console.log("Key " + "" + key + " " +  "has value " + " " + value);
@@ -54,8 +54,8 @@ var getFromSession=getVal.bind(session);
 
 
 var remItem = function(){
-  var a = document.getElementById('key2').value;
-  this.storage.removeItem(a);
+  var remKey = document.getElementById('key2').value;
+  this.storage.removeItem(remKey);
   alert("Item removed");
 }
 
